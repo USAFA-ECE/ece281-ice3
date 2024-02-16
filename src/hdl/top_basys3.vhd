@@ -61,7 +61,6 @@ entity top_basys3 is
 	port(
 		-- Switches
 		sw		:	in  std_logic_vector(2 downto 0);
-		
 		-- LEDs
 		led	    :	out	std_logic_vector(1 downto 0)
 	);
@@ -70,15 +69,38 @@ end top_basys3;
 architecture top_basys3_arch of top_basys3 is 
 	
   -- declare the component of your top-level design 
-
+component halfAdder is
+          port (
+              i_A : in std_logic;
+              i_B : in std_logic;
+              o_S : out std_logic;
+              o_Cout : out std_logic
+              );
+          end component halfAdder;
   -- declare any signals you will need	
-  
+  signal w_S1 : std_logic := '0';
+  signal w_Cout1: std_logic := '0';
+  signal w_Cout2: std_logic :='0';
 begin
 	-- PORT MAPS --------------------
-   
+       halfAdder1_inst: halfAdder
+    port map(
+        i_A     => sw(0),
+        i_B     => sw(1),
+        o_S     => w_S1,
+        o_Cout  => w_Cout1
+    );
+
+    halfAdder2_inst: halfAdder
+    port map(
+        i_A     => w_S1,-- TODO
+        i_B     => sw(2),
+        o_S     => led(0),
+        o_Cout  => w_Cout2
+    );
 	---------------------------------
 	
 	-- CONCURRENT STATEMENTS --------
-	 led(1) <= -- TODO
+	 led(1) <= w_Cout1 xor w_Cout2; -- TODO
 	---------------------------------
 end top_basys3_arch;
