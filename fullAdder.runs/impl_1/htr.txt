@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
 REM
 REM Vivado(TM)
 REM htr.txt: a Vivado-generated description of how-to-repeat the
@@ -7,3 +9,25 @@ REM Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 REM
 
 vivado -log top_basys3.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_basys3.tcl -notrace
+=======
+REM
+REM Vivado(TM)
+REM htr.txt: a Vivado-generated description of how-to-repeat the
+REM          the basic steps of a run.  Note that runme.bat/sh needs
+REM          to be invoked for Vivado to track run status.
+REM Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+REM
+
+vivado -log top_basys3.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_basys3.tcl -notrace
+>>>>>>> 4bc4b2721a12615e891034b1104fc7d6174fa2b1
+=======
+REM
+REM Vivado(TM)
+REM htr.txt: a Vivado-generated description of how-to-repeat the
+REM          the basic steps of a run.  Note that runme.bat/sh needs
+REM          to be invoked for Vivado to track run status.
+REM Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+REM
+
+vivado -log top_basys3.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_basys3.tcl -notrace
+>>>>>>> 41715e5ca3335c6ff3c2e4fc072c6f068692a1bc

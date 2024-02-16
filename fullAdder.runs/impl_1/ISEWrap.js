@@ -224,11 +224,27 @@ function ISEOpenFile( ISEFilename ) {
       } else {
         WScript.StdErr.WriteLine("ERROR: Exception caught trying to open file " + ISEFullPath);
         var exceptionFilePath = ISERunDir + "/exception.log";
+<<<<<<< HEAD
+<<<<<<< HEAD
         if (!ISEFileSys.FileExists(exceptionFilePath)) {
           WScript.StdErr.WriteLine("See file " + exceptionFilePath + " for details.");
           var exceptionFile = ISEFileSys.OpenTextFile(exceptionFilePath, 8, true);
           exceptionFile.WriteLine("ERROR: Exception caught trying to open file " + ISEFullPath);
           exceptionFile.WriteLine("\tException name: " + exception.name);
+=======
+        if (!ISEFileSys.FileExists(exceptionFilePath)) {
+          WScript.StdErr.WriteLine("See file " + exceptionFilePath + " for details.");
+          var exceptionFile = ISEFileSys.OpenTextFile(exceptionFilePath, 8, true);
+          exceptionFile.WriteLine("ERROR: Exception caught trying to open file " + ISEFullPath);
+          exceptionFile.WriteLine("\tException name: " + exception.name);
+>>>>>>> 4bc4b2721a12615e891034b1104fc7d6174fa2b1
+=======
+        if (!ISEFileSys.FileExists(exceptionFilePath)) {
+          WScript.StdErr.WriteLine("See file " + exceptionFilePath + " for details.");
+          var exceptionFile = ISEFileSys.OpenTextFile(exceptionFilePath, 8, true);
+          exceptionFile.WriteLine("ERROR: Exception caught trying to open file " + ISEFullPath);
+          exceptionFile.WriteLine("\tException name: " + exception.name);
+>>>>>>> 41715e5ca3335c6ff3c2e4fc072c6f068692a1bc
           exceptionFile.WriteLine("\tException error code: " + error_code);
           exceptionFile.WriteLine("\tException message: " + exception.message);
           exceptionFile.Close();
