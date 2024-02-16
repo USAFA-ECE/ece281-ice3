@@ -59,6 +59,7 @@ library ieee;
 
 entity top_basys3 is
 	port(
+	   
 		-- Switches
 		sw		:	in  std_logic_vector(2 downto 0);
 		
@@ -79,9 +80,9 @@ component halfAdder is
               );
           end component halfAdder;
   -- declare any signals you will need	
-  signal w_S1 : std_logic:= '1';
-  signal w_Cout1 : std_logic:='1';
-  signal w_Cout2 : std_logic:='1';
+  signal w_S1 : std_logic:= '0';
+  signal w_Cout1 : std_logic:='0';
+  signal w_Cout2 : std_logic:='0';
   
 begin
 	-- PORT MAPS --------------------
