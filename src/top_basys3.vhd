@@ -61,5 +61,7 @@ begin
 	---------------------------------
 	
 	-- CONCURRENT STATEMENTS --------
+	-- TODO: w_A, w_B, led(3 downto 0)
+	led(14 downto 4) <= (others => '0'); -- Ground unused LEDs
 	---------------------------------
 end top_basys3_arch;

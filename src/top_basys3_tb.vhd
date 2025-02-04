@@ -71,15 +71,17 @@ architecture test_bench of top_basys3_tb is
 	-- declare signals needed to stimulate the UUT inputs
 	signal w_sw    : std_logic_vector(7 downto 0) := x"00";
 	signal w_sum   : std_logic_vector(3 downto 0) := x"0";
-	signal w_Cin, w_Cout : std_logic := '0';
+	signal w_Cin, w_Cout : std_logic;
+	signal w_other_led : std_logic_vector(10 downto 0);
 
 begin
 	-- PORT MAPS ----------------------------------------
 	top_basys3_uut : top_basys3 port map (
-	   sw(7 downto 1)  => w_sw,
-	   sw(0)           => w_Cin,
+	   sw(8 downto 1)  => w_sw,
+	   sw(0)           => w_Cin, 
 	   led(3 downto 0) => w_sum,
-	   led(15)         => w_Cout
+	   led(15)         => w_Cout,
+	   led(14 downto 4) => w_other_led
 	);
 	
 	-- PROCESSES ----------------------------------------	
