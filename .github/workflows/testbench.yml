@@ -1,23 +1,23 @@
 ---
 env:
-  TB_ENTITY: fulllAdder_tb
+  TESTBENCH_ENTITY: full_adder
 
 name: GHDL Testbench
 on: [push]
 jobs:
-  Execute-Testbench:
-    runs-on: ubuntu-24.04
+  Student-Testbench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
+      - name: Setup GHDL nightly
+        uses: ghdl/setup-ghdl-ci@nightly
+        with:
+          backend: llvm
+      - run: ghdl --version
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Setup GHDL nightly
-        uses: ghdl/setup-ghdl@v1
-        with:
-          backend: mcode
-          investigate: true
-      - run: ghdl --version
-      - name: Execute the VHDL testbench
-        run: |
-          ghdl analyze -v src/*.vhd
-          ghdl elaborate -v $TB_ENTITY
-          ghdl run -v $TB_ENTITY --stop-time=1us
+      - run: ghdl analyze -v src/${TESTBENCH_ENTITY}.vhd
+      - run: ghdl analyze -v src/${TESTBENCH_ENTITY}_tb.vhd
+      - run: ls -R
+      - run: ghdl elaborate -v ${TESTBENCH_ENTITY}_tb
+      - run: ghdl run -v --assert-level=error ${TESTBENCH_ENTITY}_tb --stop-time=1us
