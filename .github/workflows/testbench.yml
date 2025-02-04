@@ -1,6 +1,6 @@
 ---
 env:
-  TESTBENCH_ENTITY: full_adder
+  TESTBENCH_ENTITY: top_basys3
 
 name: GHDL Testbench
 on: [push]
